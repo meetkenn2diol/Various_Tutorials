@@ -1,0 +1,27 @@
+﻿Flow supports structured concurrency
+
+Because a flow allows you to consume values only with terminal operators, it can support structured concurrency.
+
+When the consumer of a flow is cancelled, the entire Flow is cancelled. Due to structured concurrency, it is impossible to leak a coroutine from an intermediate step
+
+
+By specifying a Flow return type, Room executes the query with the following characteristics:
+
+info: Main-safety – Queries with a Flow return type always run on the Room executors, so they are always main-safe. You don't need to do anything in your code to make them run off the main thread.
+Observes changes – Room automatically observes changes and emits new values to the flow.
+Async sequence – Flow emits the entire query result on each change, and it won't introduce any buffers. If you return a Flow<List<T>>, the flow emits a List<T> that contains all rows from the query result. It will execute just like a sequence – emitting one query result at a time and suspending until it is asked for the next one.
+Cancellable – When the scope that's collecting these flows is cancelled, Room cancels observing this query.
+
+info: What is declarative?
+Declarative is an API style that means describing what your program should do instead of how to do it. One of the more commonly known declarative languages is SQL, which allows developers to express what they would like the database to query instead of how to perform the query.
+
+info: StateFlow is different from a regular flow created using, for example, the flow{} builder. A StateFlow is created with an initial value and keeps its state even without being collected and between subsequent collections.
+
+info: Using Flow, it's natural to collect data in the ViewModel, Repository, or other data layers when needed.
+
+Since Flow is not tied to the UI, you don't need a UI observer to collect a flow. This is a big difference from LiveData which always requires a UI-observer to run. It is not a good idea to try to observe a LiveData in your ViewModel because it doesn't have an appropriate observation lifecycle.
+
+
+
+
+

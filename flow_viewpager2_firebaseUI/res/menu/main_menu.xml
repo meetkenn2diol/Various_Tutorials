@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_menu">
+    <item
+        android:id="@+id/goto_viewpager2_demo"
+        android:title="@string/goto_viewpager2_demo" />
+    <item
+        android:id="@+id/goto_firebaseui_demo"
+        android:title="@string/goto_firebaseui_demo" />
+    <item
+        android:id="@+id/goto_advanced_coroutine_tutorial"
+        android:title="@string/goto_advanced_coroutine_tutorial"/>
+</menu>

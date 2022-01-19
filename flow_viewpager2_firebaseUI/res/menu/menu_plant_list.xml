@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/filter_zone"
+        android:icon="@drawable/ic_filter_list_24dp"
+        app:showAsAction="always"
+        android:title="@string/menu_filter_by_grow_zone"/>
+
+
+    <item android:id="@+id/leave_this_activity_to_firebaseviewpager_activity"
+        android:icon="@drawable/ic_filter_list_24dp"
+        app:showAsAction="ifRoom"
+        android:title="@string/leave_this_activity_to_firebaseviewpager_activity"/>
+
+</menu>
